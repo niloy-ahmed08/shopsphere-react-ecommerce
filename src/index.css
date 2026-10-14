@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Satisfy&display=swap');
+
+
 @utility container {
     @apply mx-auto
+}
+
+@theme{
+    --font-League:"League Spartan", sans-serif;
+    --font-satoshi :"Satisfy", cursive;
 }
