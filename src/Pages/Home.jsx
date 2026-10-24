@@ -3,6 +3,7 @@ import Banner from '../Components/Banner'
 import Scrollballocity from '../Components/Scrollballocity'
 import NewAriveals from '../Components/NewAriveals'
 import TopSellingProduct from '../Components/TopSellingProduct'
+import BrowseDress from '../Components/BrowseDress'
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Scrollballocity/>
       <NewAriveals/>
       <TopSellingProduct/>
+      <BrowseDress/>
     </div>
   )
 }
