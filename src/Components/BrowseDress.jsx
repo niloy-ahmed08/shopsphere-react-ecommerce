@@ -3,7 +3,10 @@ import casual from'../assets/casualty.png'
 import formal from'../assets/formal.png'
 import gym from'../assets/gym.png'
 import party from'../assets/party.png'
+import { useNavigate } from 'react-router'
 const BrowseDress = () => {
+
+  const navigatecasual = useNavigate()
   return (
     <div className='py-25'>
       <div className="container">
@@ -14,7 +17,7 @@ const BrowseDress = () => {
 
              <div className='flex  gap-10 justify-center mt-16'>
                 <div>
-                    <img src={casual} alt=""  className=''/>
+                    <img onClick={()=>navigatecasual('/casual')} src={casual} alt=""  className=''/>
                 </div>
                 <div>
                     <img src={formal} alt=""  className=''/>

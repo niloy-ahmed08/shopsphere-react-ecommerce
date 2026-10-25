@@ -42,21 +42,21 @@ const NewAriveals = () => {
       <div className="container">
         <div>
 
-    
+             
 
-            <h1 className='text-[48px] font-bold  text-center'>NEW ARRIVALS</h1>
-              <li onClick={()=>(dispath(ProductReducer((products))))}>all products</li>
+            <h1 className='text-[48px] font-bold  text-center '>NEW ARRIVALS</h1>
+              {/* <li onClick={()=>(dispath(ProductReducer((products))))}></li> */}
                 <ul className=' flex items-center gap-10 justify-center'>
 
                 {
                   unickcategory.map((item)=>{
-                    return <li className='  rounded-2xl justify-center bg-mist-400 p-2 text-black flex items-center' onClick={()=>handalecategory(item)}>{item}</li>
+                    return <li className='  rounded-2xl justify-center bg-[#F0EEED] p-2 text-black flex items-center mt-10' onClick={()=>handalecategory(item)}>{item}</li>
                   })
                 }
                 </ul>
 
                 {
-                  Loading ?<div className='mt-10   justify-center  flex flex-wrap items-center gap-30 '>
+                  Loading ?<div className='mt-13   justify-center  flex flex-wrap items-center gap-30 '>
 
                        <>
                        <SKelitoon/>

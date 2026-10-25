@@ -9,7 +9,7 @@ const TopSellingProduct = () => {
           const AllProductsSelling = async ()=>{
 
 
-          const datasecond = await axios.get('https://api.escuelajs.co/api/v1/products')  
+          const datasecond = await axios.get('https://api.escuelajs.co/api/v1/products?offset=0&limit=20')  
                 setsellingproduct(datasecond.data)
 
           }
