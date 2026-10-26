@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import Home from "./Pages/Home";
 import RootLayout from "./RootLayout";
 import Casual from "./Pages/Casual";
+import Formal from "./Pages/Formal";
 
 export const router = createBrowserRouter([
 {
@@ -10,7 +11,8 @@ export const router = createBrowserRouter([
     children: [
       { index: true, Component: Home},
         { path: "casual", Component: Casual },
-      
+                { path: "formal", Component: Formal },
+
      
     ],
   },

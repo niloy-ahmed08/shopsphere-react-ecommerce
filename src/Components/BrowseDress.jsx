@@ -20,7 +20,7 @@ const BrowseDress = () => {
                     <img onClick={()=>navigatecasual('/casual')} src={casual} alt=""  className=''/>
                 </div>
                 <div>
-                    <img src={formal} alt=""  className=''/>
+                    <img onClick={()=>navigatecasual('/formal')} src={formal} alt=""  className=''/>
                 </div>
              </div>
               <div className='flex  gap-10 justify-center mt-4'>
