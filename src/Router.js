@@ -3,6 +3,7 @@ import Home from "./Pages/Home";
 import RootLayout from "./RootLayout";
 import Casual from "./Pages/Casual";
 import Formal from "./Pages/Formal";
+import Party from "./Pages/Party";
 
 export const router = createBrowserRouter([
 {
@@ -11,8 +12,8 @@ export const router = createBrowserRouter([
     children: [
       { index: true, Component: Home},
         { path: "casual", Component: Casual },
-                { path: "formal", Component: Formal },
-
+     { path: "formal", Component: Formal },
+     { path: "party", Component: Party },
      
     ],
   },

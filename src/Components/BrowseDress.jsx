@@ -25,7 +25,7 @@ const BrowseDress = () => {
              </div>
               <div className='flex  gap-10 justify-center mt-4'>
                 <div>
-                    <img src={party} alt=""  className=''/>
+                    <img src={party} alt=""  onClick={()=>navigatecasual('party')} className=''/>
                 </div>
                 <div>
                     <img src={gym} alt=""  className=''/>
