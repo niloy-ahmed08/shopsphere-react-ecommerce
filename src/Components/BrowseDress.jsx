@@ -28,7 +28,7 @@ const BrowseDress = () => {
                     <img src={party} alt=""  onClick={()=>navigatecasual('party')} className=''/>
                 </div>
                 <div>
-                    <img src={gym} alt=""  className=''/>
+                    <img src={gym} alt="" onClick={()=>navigatecasual('gym')}  className=''/>
                 </div>
              </div>
         </div>

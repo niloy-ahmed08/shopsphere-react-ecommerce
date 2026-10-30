@@ -11,15 +11,15 @@ const NewAriveals = () => {
            const dispath = useDispatch()
            const datae = useSelector (  state => state.product.value)
             
-
+             console.log(datae)
             
            const Allproducts = async ()=>{
 
-             const data = await axios.get('https://fakestoreapi.com/products')
-             dispath(ProductReducer(data.data))
+             const data = await axios.get('https://dummyjson.com/products')
+             dispath(ProductReducer(data.data.products))
              setLoading(false)
              
-             setproducts(data.data)
+             setproducts(data.data.products)
            }
 
            console.log(products)
@@ -32,8 +32,8 @@ const NewAriveals = () => {
             const unickcategory = [...new Set(datae.map((item)=>item.category))]
             const handalecategory = (item)=>{
 
-               let categorybycategory = products.filter((items)=>items.category === item);
-                   dispath(ProductReducer(categorybycategory))
+               let categorybycategory = datae.filter((items)=>items.category === item);
+                setproducts(categorybycategory)
                    
             };
 
@@ -50,7 +50,8 @@ const NewAriveals = () => {
 
                 {
                   unickcategory.map((item)=>{
-                    return <li className='  rounded-2xl justify-center bg-[#F0EEED] p-2 text-black flex items-center mt-10' onClick={()=>handalecategory(item)}>{item}</li>
+                    return <li  className='  rounded-2xl justify-center bg-[#F0EEED] p-2 text-black flex items-center mt-10' onClick={()=>handalecategory(item)}>
+                      {item}</li>
                   })
                 }
                 </ul>
@@ -75,7 +76,7 @@ const NewAriveals = () => {
                   products.map((item)=>{
                     
                     return <Card
-                    imgsrc={item.image}
+                    imgsrc={item.thumbnail}
                     title={(item.title).slice(0,12)}
                     price={item.price}
                     disparcent={item.price}

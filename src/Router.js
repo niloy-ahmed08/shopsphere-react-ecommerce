@@ -4,6 +4,7 @@ import RootLayout from "./RootLayout";
 import Casual from "./Pages/Casual";
 import Formal from "./Pages/Formal";
 import Party from "./Pages/Party";
+import Gym from "./Pages/Gym";
 
 export const router = createBrowserRouter([
 {
@@ -14,7 +15,7 @@ export const router = createBrowserRouter([
         { path: "casual", Component: Casual },
      { path: "formal", Component: Formal },
      { path: "party", Component: Party },
-     
+          { path: "gym", Component: Gym },
     ],
   },
 ]);
