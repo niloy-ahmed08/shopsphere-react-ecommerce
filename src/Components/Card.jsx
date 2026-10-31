@@ -1,12 +1,15 @@
 import React from 'react'
 import tshart from '../assets/tshart.png'
 import { Rate } from 'antd';
+import { useNavigate } from 'react-router';
 const Card = ({imgsrc,title,price,disprice,disparcent}) => {
+
+    const navigate = useNavigate()
   return (
     <div>
 
         <div>
-            <img src={imgsrc} className='w-73.75 h-70 bg-[#F0EEED]' alt="" />
+            <img src={imgsrc} onClick={()=>navigate('/productdettels')} className='w-73.75 h-70 bg-[#F0EEED]' alt="" />
             <h1 className='text-[20px] font-bold leading-[100%] mt-4'>{title}</h1>
                <h1 className='mt-3'>
       <Rate allowHalf defaultValue={2.5} />
