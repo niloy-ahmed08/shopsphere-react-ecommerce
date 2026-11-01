@@ -1,10 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import tsart from '../assets/tsart.png'
-import { Rate } from 'antd';
+import { Rate, Skeleton } from 'antd';
 import { FaMinus } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
+import axios from 'axios';
+import { useParams } from 'react-router';
+import SKelitoon from '../Components/SKelitoon';
+
 
 const ProductDettels = () => {
+
+  const [prodct,setprodct]=useState([])
+  const [images,setimages]=useState([])
+     const {id} = useParams()
+const[error,seterror]=useState([])
+
+  const Allproducts = async ()=>{
+
+             const data = await axios.get(`https://dummyjson.com/products/${id}`)
+               setprodct(data.data)
+                setimages(data.data.images)
+                seterror(false)
+           }
+
+                console.log(prodct)
+           
+
+           
+
+             useEffect(()=>{
+                         Allproducts()
+                       },[])
+           
+
+
+
   return (
     <div className='py-10'>
       <div className="container">
@@ -14,28 +44,39 @@ const ProductDettels = () => {
 
         <div className='flex gap-4 items-center w-[50%]'>
 
-        <div className='mt-3.5'>
-            <img src={tsart} className='w-38 h-41.75' alt="" />
-            <img src={tsart} className='w-38 h-41.75' alt="" />
-            <img src={tsart} className='w-38 h-41.75' alt="" />
+        <div className='mt-3.5 space-y-2'>
+
+          {
+            images.map((item)=> <img src={item} className='w-38 h-41.75' alt="" />)
+          }
+           
+          
         </div>
         <div>
-            <img className='w-111' src={tsart}  alt="" />
+          {
+            error ?      <div className='w-111'>
+                       <SKelitoon  />
+                    
+                       
+                       </div>
+
+            :
+            <img className='w-111' src={prodct.thumbnail}  alt="" />
+          }
+            
         </div>
 
       </div>
 
           <div className='w-[50%]'>
-            <h1 className='text-4xl font-bold'>One Life Graphic T-shirt</h1>
-                 <Rate className='mt-2' allowHalf defaultValue={2.5} />
+            <h1 className='text-4xl font-bold'>{prodct.title}</h1>
+                 <Rate className='mt-2' allowHalf value={prodct.rating} />
                  <div className='flex gap-2'>
-                    <h1 className='text-black'>$321</h1>
-                    <h3 className='text-gray-400'>$324</h3>
-                    <h1 className='w-18 bg-gray-400 text-red-400 flex items-center justify-center rounded-sm'>-54%</h1>
+                    <h1 className='text-black'>${(prodct.price)}</h1>
+                    <h3 className='text-gray-400'>${prodct.discountPercentage}</h3>
+                    <h1 className='w-18 bg-gray-400 text-red-400 flex items-center justify-center rounded-sm'>{prodct.discountPercentage}%</h1>
                  </div>
-                 <p className='text-sm font-normal text-gray-400 mt-5 border-b pb-6 leading-6'>This graphic t-shirt which is perfect for
-                     any occasion. Crafted from a soft <span className='block'>and breathable 
-                     fabric, it offers superior comfort and style.</span> </p>
+                 <p className='text-sm font-normal text-gray-400 mt-5 border-b pb-6 leading-6'>{prodct.description} </p>
                        <h1 className='text-sm font-bold mt-4'>Select Colors</h1>
                      <div className='mt-2 flex gap-4 items-center border-b pb-5'>
                         <span className=' size-6 rounded-full bg-black'></span>

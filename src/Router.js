@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
      { path: "formal", Component: Formal },
      { path: "party", Component: Party },
           { path: "gym", Component: Gym },
-        { path: "productdettels", Component: ProductDettels },
+        { path: "productdettels/:id", Component: ProductDettels },
     ],
   },
 ]);
