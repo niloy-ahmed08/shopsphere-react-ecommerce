@@ -2,9 +2,18 @@ import React from 'react'
 import { IoSearchSharp } from "react-icons/io5";
 import { IoCart } from "react-icons/io5";
 import { IoIosContact } from "react-icons/io";
+import { useNavigate } from 'react-router';
 
 
 const NavBar = () => {
+
+
+  const navigate = useNavigate()
+
+     const cartdettels = ()=>{
+      navigate('/cartdettels')
+     }
+
   return (
     <div className='py-6 bg-white'>
            <div className="container">
@@ -27,7 +36,7 @@ const NavBar = () => {
                       </div>
 
                       <div className='flex gap-6 text-2xl'>
-                        <IoCart />
+                        <IoCart onClick={cartdettels} />
                         <IoIosContact />
 
                       </div>
