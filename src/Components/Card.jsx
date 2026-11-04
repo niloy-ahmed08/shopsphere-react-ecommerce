@@ -2,7 +2,9 @@ import React from 'react'
 import tshart from '../assets/tshart.png'
 import { Rate } from 'antd';
 import { useNavigate } from 'react-router';
-const Card = ({imgsrc,title,price,disprice,disparcent,id}) => {
+import { useDispatch } from 'react-redux';
+import { cartReducer } from '../Slice/ProductSlice';
+const Card = ({imgsrc,title,price,disprice,disparcent,id,productdetels}) => {
 
     const navigate = useNavigate()
 
@@ -11,11 +13,23 @@ const Card = ({imgsrc,title,price,disprice,disparcent,id}) => {
           navigate(`/productdettels/${id}`)
         }
 
-  return (
-    <div>
+                  const dispatch = useDispatch ()
 
-        <div>
+
+                  const addtocart = ()=>{
+
+                    dispatch(cartReducer(productdetels))
+
+                  }
+
+  return (
+    <>
+
+        <div className=' group '>
+          <div className=' relative  overflow-hidden'>
             <img src={imgsrc} onClick={productdettels} className='w-73.75 h-70 bg-[#F0EEED]' alt="" />
+             <button onClick={addtocart} className='py-3 px-6 bg-black text-white mx-auto  absolute -bottom-12 group-hover:bottom-0 w-full duration-300 ease-linear'>add to cart</button>
+          </div>
             <h1 className='text-[20px] font-bold leading-[100%] mt-4'>{title}</h1>
                <h1 className='mt-3'>
       <Rate allowHalf defaultValue={2.5} />
@@ -27,7 +41,7 @@ const Card = ({imgsrc,title,price,disprice,disparcent,id}) => {
                </div>
         </div>
       
-    </div>
+    </>
   )
 }
 

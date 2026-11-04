@@ -6,6 +6,8 @@ import { FaPlus } from "react-icons/fa6";
 import axios from 'axios';
 import { useParams } from 'react-router';
 import SKelitoon from '../Components/SKelitoon';
+import { useDispatch } from 'react-redux';
+import { cartReducer } from '../Slice/ProductSlice';
 
 
 const ProductDettels = () => {
@@ -23,7 +25,7 @@ const[error,seterror]=useState([])
                 seterror(false)
            }
 
-                console.log(prodct)
+                
            
 
            
@@ -31,7 +33,10 @@ const[error,seterror]=useState([])
              useEffect(()=>{
                          Allproducts()
                        },[])
-           
+
+                       const  dispatch = useDispatch()
+
+                   
 
 
 
@@ -110,7 +115,7 @@ const[error,seterror]=useState([])
 
                      </div>
 
-                     <div className=' bg-black pt-4 pb-4 pr-40 pl-40 text-white rounded-[62px]'>
+                     <div  className=' bg-black pt-4 pb-4 pr-40 pl-40 text-white rounded-[62px]'>
                           add to cart
                      </div>
 

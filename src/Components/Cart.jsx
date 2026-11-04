@@ -18,6 +18,7 @@ const Cart = () => {
                 {
                     datae.map((item)=>{
                         return  <CartItem 
+                        
                         title={item.title}
                         price={item.price}
                         imgsrc={item.thumbnail}

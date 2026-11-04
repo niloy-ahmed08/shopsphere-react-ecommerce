@@ -3,16 +3,14 @@ import { IoSearchSharp } from "react-icons/io5";
 import { IoCart } from "react-icons/io5";
 import { IoIosContact } from "react-icons/io";
 import { useNavigate } from 'react-router';
+import { useSelector } from 'react-redux';
 
 
 const NavBar = () => {
 
 
-  const navigate = useNavigate()
+   const selector = useSelector(state=>state.product.cart)
 
-     const cartdettels = ()=>{
-      navigate('/cartdettels')
-     }
 
   return (
     <div className='py-6 bg-white'>
@@ -36,7 +34,11 @@ const NavBar = () => {
                       </div>
 
                       <div className='flex gap-6 text-2xl'>
-                        <IoCart onClick={cartdettels} />
+                        <IoCart  className=' relative' />
+                        <div className=' mb-15 absolute size-4 rounded-full flex items-center justify-center text-xs text-white bg-red-400'>
+                          {selector.length}
+
+                        </div>
                         <IoIosContact />
 
                       </div>
