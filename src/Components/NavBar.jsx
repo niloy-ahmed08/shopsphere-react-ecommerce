@@ -10,7 +10,8 @@ const NavBar = () => {
 
 
    const selector = useSelector(state=>state.product.cart)
-
+     console.log(selector)
+   const navigate = useNavigate()
 
   return (
     <div className='py-6 bg-white'>
@@ -34,11 +35,14 @@ const NavBar = () => {
                       </div>
 
                       <div className='flex gap-6 text-2xl'>
-                        <IoCart  className=' relative' />
-                        <div className=' mb-15 absolute size-4 rounded-full flex items-center justify-center text-xs text-white bg-red-400'>
+                        <div onClick={()=>navigate('/cartdettels')}  >
+                           <IoCart  className=' relative' />
+                        <div className=' -mt-7 absolute size-4 rounded-full flex items-center justify-center text-xs text-white bg-red-400'>
                           {selector.length}
 
                         </div>
+                        </div>
+                       
                         <IoIosContact />
 
                       </div>

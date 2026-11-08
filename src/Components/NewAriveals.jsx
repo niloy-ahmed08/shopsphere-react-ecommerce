@@ -82,7 +82,7 @@ const NewAriveals = () => {
                     disparcent={item.price}
                     disprice={item.price}
                     id={item.id}
-                    productdettels={item}
+                    productdetels={item}
                     />
                   })
                   

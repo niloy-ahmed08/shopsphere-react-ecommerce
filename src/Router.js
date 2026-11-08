@@ -6,7 +6,8 @@ import Formal from "./Pages/Formal";
 import Party from "./Pages/Party";
 import Gym from "./Pages/Gym";
 import ProductDettels from "./Pages/ProductDettels";
-import Cart from "./Components/Cart";
+import Cart from "./Pages/Cart";
+
 
 export const router = createBrowserRouter([
 {

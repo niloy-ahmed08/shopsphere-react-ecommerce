@@ -17,8 +17,12 @@ export const ProductSlice = createSlice({
             state.value = action.payload
   },
     cartReducer : (state,action)=>{
-            state.cart = [...state.cart , action.payload] 
+           let exits = state.cart.find((item)=>item.id == action.payload.id)
+           if (!exits) {
+                  state.cart = [...state.cart , action.payload] 
             localStorage.setItem('cartkey',JSON.stringify(state.cart))
+           }
+      
   }
     },
     

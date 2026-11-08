@@ -2,7 +2,7 @@ import React from 'react'
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
-const CartItem = ({imgsrc,title,price}) => {
+const CartItem = ({imgsrc,titles,price}) => {
   return (
     <div className='py-5'>
       <div className="container">
@@ -10,7 +10,7 @@ const CartItem = ({imgsrc,title,price}) => {
                  <div className='flex gap-4 relative border-b pb-7 border-[#0000001A]'>
                     <img src={imgsrc} className='w-31' alt="" />
                       <div>
-                        <h1>{title}</h1>
+                        <h1>{titles}</h1>
                         <p className='mt-1'>size</p>
                          <h3 className='mt-2'>color black</h3>
                          <h1 className='mt-4 font-bold text-2xl'>${price}</h1>
