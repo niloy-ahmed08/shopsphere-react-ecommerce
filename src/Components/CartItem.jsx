@@ -2,7 +2,35 @@ import React from 'react'
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
-const CartItem = ({imgsrc,titles,price}) => {
+import { useDispatch } from 'react-redux';
+import { RemoveReducer } from '../Slice/ProductSlice';
+import { toast, Bounce, Slide } from 'react-toastify';
+const CartItem = ({imgsrc,titles,price,id}) => {
+
+             const dispatch = useDispatch()
+
+
+                const RemoveNotify = ()=>{
+                  toast.success('Your card item Deelete!', {
+position: "top-right",
+autoClose: 700,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
+transition: Slide,
+});
+                }
+
+              const handaleaDellate = ()=>{
+
+                      dispatch(RemoveReducer(id))
+                      RemoveNotify()
+
+              }
+
   return (
     <div className='py-5'>
       <div className="container">
@@ -15,7 +43,7 @@ const CartItem = ({imgsrc,titles,price}) => {
                          <h3 className='mt-2'>color black</h3>
                          <h1 className='mt-4 font-bold text-2xl'>${price}</h1>
                       </div>
-                      <div className=' absolute top-2 right-3'>
+                      <div onClick={handaleaDellate} className=' cursor-pointer absolute top-2 right-3'>
                         <FaRegTrashAlt className='text-red-400'/>
 
                       </div>

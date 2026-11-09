@@ -2,8 +2,9 @@ import React from 'react'
 import tshart from '../assets/tshart.png'
 import { Rate } from 'antd';
 import { useNavigate } from 'react-router';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { cartReducer } from '../Slice/ProductSlice';
+ import { ToastContainer, toast,Slide } from 'react-toastify';
 const Card = ({imgsrc,title,price,disprice,disparcent,id,productdetels}) => {
 
     const navigate = useNavigate()
@@ -15,11 +16,53 @@ const Card = ({imgsrc,title,price,disprice,disparcent,id,productdetels}) => {
 
                   const dispatch = useDispatch ()
 
+                            const selector = useSelector(state=>state.product.cart)
+
+                     
+                        const notify = (matchitemtostify)=>{
+
+                        if (!matchitemtostify) {
+                                 toast.success('SuccsessfullY Product added to your cart!', {
+                   position: "top-right",
+                   autoClose: 1090,
+                   hideProgressBar: false,
+                   closeOnClick: false,
+                   pauseOnHover: true,
+                   draggable: true,
+                   progress: undefined,
+                   theme: "light",
+                   transition: Slide,
+                });
+                return;
+                          
+                        }
+                            toast.warn('Product is already in your cart!!', {
+                position: "top-right",
+                autoClose: 1190,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Slide,
+            });
+                               
+
+                        }
+
+                            
 
                   const addtocart = ()=>{
 
-                    dispatch(cartReducer(productdetels))
 
+                    let matchitem = selector.find((item)=>item.id === id)
+
+                       matchitem ? notify(true) :(
+                          dispatch(cartReducer(productdetels)),
+                    notify(false)
+                       )
+                      
                   }
 
   return (
