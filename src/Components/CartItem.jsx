@@ -3,9 +3,11 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { useDispatch } from 'react-redux';
-import { RemoveReducer } from '../Slice/ProductSlice';
+
 import { toast, Bounce, Slide } from 'react-toastify';
-const CartItem = ({imgsrc,titles,price,id}) => {
+import { decrementReducer, incrementReducer, RemoveReducer } from '../Slice/ProductSlice';
+
+const CartItem = ({imgsrc,titles,price,id,quan}) => {
 
              const dispatch = useDispatch()
 
@@ -52,16 +54,20 @@ transition: Slide,
                                           <div className=' absolute bottom-7 right-4  p-2 py-4 px-5 bg-[#F0F0F0] h-12 items-center flex justify-center rounded-[60px] mt-5 '>
                      
                                            <div className='flex gap-10  items-center'>
-                                             <FaMinus />
+                                             <FaMinus onClick={()=>dispatch(decrementReducer(id))} />
                      
-                                             <h1>3</h1>
-                                             <FaPlus />
+                                             <h1>{quan}</h1>
+                                             <FaPlus onClick={()=>dispatch(incrementReducer(id))}  />
                      
                                            </div>
                      
                                           </div>
                  </div>
             </div>
+
+           
+
+
       </div>
     </div>
   )

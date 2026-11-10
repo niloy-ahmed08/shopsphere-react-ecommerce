@@ -23,7 +23,7 @@ const NavBar = () => {
                       <ul className='text-[16px] font-normal text-black  font-satoshi gap-9 flex items-center'>
                         <li>Shop</li>
                         <li>On Sale</li>
-                        <li>New Arrivals</li>
+                        <li className=' cursor-pointer' onClick={()=>navigate('/newarrivales')} >New Arrivals</li>
                         <li>Brands</li>
                       </ul>
                       <div className=' relative  '>

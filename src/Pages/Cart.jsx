@@ -20,6 +20,8 @@ const Cart = () => {
       <div className="container">
            <h1 className='text-2xl font-bold'>Your Cart</h1>
 
+           <div className=' relative '>
+
            { selector.length === 0 ? (
 
             <div className='text-center py-20 bg-white rounded-2xl shadow-sm border border-gray-100'>
@@ -29,7 +31,7 @@ const Cart = () => {
            ):
            (
            <>
-             <div className='border-[#0000001A] border p-3  w-150 rounded-4xl'>
+             <div className='border-[#0000001A] border p-3  w-[50%]  rounded-4xl'>
              {
               selector.map((item)=>{
                 return  <CartItem
@@ -37,6 +39,7 @@ const Cart = () => {
                 imgsrc={item.thumbnail}
                 price={item.price}
                 id={item.id}
+                quan={item.quan}
                 />
               })
              }
@@ -48,7 +51,33 @@ const Cart = () => {
            </>
            )
            }
-         
+
+            <div className='p-3 border border-[#0000001A] w-126 rounded-2xl absolute top-0 right-50'>
+                      <h1 className='text-2xl font-bold'>Order Summary</h1>
+                      <div className='flex justify-between mt-4'>
+                        <h1 className='text-gray-400'>Subtotal</h1>
+                        <h3>$325</h3>
+                      </div>
+                      <div className='flex justify-between mt-4'>
+                        <h1 className='text-gray-400'>Discount (-20%)</h1>
+                        <h3>$325</h3>
+                      </div>
+                      <div className='flex justify-between mt-4 border-b border-[#0000001A] pb-5'>
+                        <h1 className='text-gray-400'>Delivery Fee</h1>
+                        <h3>$325</h3>
+                      </div>
+                      <div className='flex justify-between mt-4'>
+                        <h1 className='text-gray-400'>total</h1>
+                        <h3>$325</h3>
+                      </div>
+                      <div className='flex mt-4 items-center justify-between'>
+                        <button className='py-3 px-30 bg-[#F0F0F0] rounded-[62px]'>Add promo code</button>
+                        <button className='bg-black py-2 px-6 rounded-[62px] text-white'>apply</button>
+                      </div>
+                 </div>
+
+
+         </div>
       </div>
     </div>
   )

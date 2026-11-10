@@ -27,6 +27,19 @@ export const ProductSlice = createSlice({
    RemoveReducer : (state,action)=>{
             state.cart = state.cart.filter((item)=>item.id !== action.payload)
             localStorage.setItem('cartkey',JSON.stringify(state.cart))
+           },
+
+        incrementReducer : (state,action)=>{
+            state.cart = state.cart.map((item)=>{
+             return action.payload == item.id ? {...item, quan : item.quan + 1} : item
+            })
+            localStorage.setItem('cartkey',JSON.stringify(state.cart))
+           } ,
+           
+           decrementReducer : (state,action)=>{
+            state.cart = state.cart.map((item)=>{
+              return action.payload == item.id ? {...item , quan : item.quan > 1 ? item.quan - 1 : 1 } :item
+            })
            }
       
     },
@@ -35,6 +48,6 @@ export const ProductSlice = createSlice({
   
 })
 
-export const {ProductReducer,CasualProductrducer,GymProducts,cartReducer,RemoveReducer} = ProductSlice.actions
+export const {ProductReducer,CasualProductrducer,GymProducts,cartReducer,RemoveReducer,incrementReducer,decrementReducer} = ProductSlice.actions
 
 export default ProductSlice.reducer

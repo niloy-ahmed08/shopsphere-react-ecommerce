@@ -59,7 +59,7 @@ const Card = ({imgsrc,title,price,disprice,disparcent,id,productdetels}) => {
                     let matchitem = selector.find((item)=>item.id === id)
 
                        matchitem ? notify(true) :(
-                          dispatch(cartReducer(productdetels)),
+                          dispatch(cartReducer({...productdetels,quan : 1})),
                     notify(false)
                        )
                       
