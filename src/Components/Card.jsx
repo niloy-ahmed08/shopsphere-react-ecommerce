@@ -3,7 +3,7 @@ import tshart from '../assets/tshart.png'
 import { Rate } from 'antd';
 import { useNavigate } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
-import { cartReducer } from '../Slice/ProductSlice';
+import { cartReducer, subtotalReducer } from '../Slice/ProductSlice';
  import { ToastContainer, toast,Slide } from 'react-toastify';
 const Card = ({imgsrc,title,price,disprice,disparcent,id,productdetels}) => {
 
@@ -60,6 +60,7 @@ const Card = ({imgsrc,title,price,disprice,disparcent,id,productdetels}) => {
 
                        matchitem ? notify(true) :(
                           dispatch(cartReducer({...productdetels,quan : 1})),
+                          dispatch(subtotalReducer()),
                     notify(false)
                        )
                       

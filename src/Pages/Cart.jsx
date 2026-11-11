@@ -12,7 +12,9 @@ const Cart = () => {
 
         const selector = useSelector(state=>state.product.cart)
      
-         
+                const subtotals = useSelector(state=>state.product.subtotal)
+
+              console.log(subtotals)
       
         
   return (
@@ -56,15 +58,15 @@ const Cart = () => {
                       <h1 className='text-2xl font-bold'>Order Summary</h1>
                       <div className='flex justify-between mt-4'>
                         <h1 className='text-gray-400'>Subtotal</h1>
-                        <h3>$325</h3>
+                        <h3>${(subtotals).toFixed(0,2)}</h3>
                       </div>
                       <div className='flex justify-between mt-4'>
                         <h1 className='text-gray-400'>Discount (-20%)</h1>
-                        <h3>$325</h3>
+                        <h3>${Number(subtotals.toFixed(2)) - 2}</h3>
                       </div>
                       <div className='flex justify-between mt-4 border-b border-[#0000001A] pb-5'>
                         <h1 className='text-gray-400'>Delivery Fee</h1>
-                        <h3>$325</h3>
+                        <h3>$7</h3>
                       </div>
                       <div className='flex justify-between mt-4'>
                         <h1 className='text-gray-400'>total</h1>

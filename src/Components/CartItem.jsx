@@ -5,7 +5,7 @@ import { FaPlus } from "react-icons/fa6";
 import { useDispatch } from 'react-redux';
 
 import { toast, Bounce, Slide } from 'react-toastify';
-import { decrementReducer, incrementReducer, RemoveReducer } from '../Slice/ProductSlice';
+import { decrementReducer, incrementReducer, RemoveReducer, subtotalReducer } from '../Slice/ProductSlice';
 
 const CartItem = ({imgsrc,titles,price,id,quan}) => {
 
@@ -29,6 +29,7 @@ transition: Slide,
               const handaleaDellate = ()=>{
 
                       dispatch(RemoveReducer(id))
+                      dispatch(subtotalReducer())
                       RemoveNotify()
 
               }
@@ -54,10 +55,10 @@ transition: Slide,
                                           <div className=' absolute bottom-7 right-4  p-2 py-4 px-5 bg-[#F0F0F0] h-12 items-center flex justify-center rounded-[60px] mt-5 '>
                      
                                            <div className='flex gap-10  items-center'>
-                                             <FaMinus onClick={()=>dispatch(decrementReducer(id))} />
+                                             <FaMinus onClick={()=>{dispatch(decrementReducer(id)),dispatch(subtotalReducer())}} />
                      
                                              <h1>{quan}</h1>
-                                             <FaPlus onClick={()=>dispatch(incrementReducer(id))}  />
+                                             <FaPlus onClick={()=>{dispatch(incrementReducer(id)),dispatch(subtotalReducer())}}  />
                      
                                            </div>
                      
