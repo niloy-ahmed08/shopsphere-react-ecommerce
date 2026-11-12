@@ -15,7 +15,12 @@ const Cart = () => {
                 const subtotals = useSelector(state=>state.product.subtotal)
 
               console.log(subtotals)
-      
+
+              const discauntparcent = 20 ;
+              const deliveryFree = 2 ;
+
+              const discauntamaunt = (subtotals * discauntparcent) / 100 ;
+              const total = subtotals - discauntamaunt + deliveryFree;
         
   return (
     <div className='py-10 '>
@@ -50,11 +55,36 @@ const Cart = () => {
          
               
            </div>
+            <div className='p-3 border border-[#0000001A] w-126 rounded-2xl absolute top-0 right-50'>
+                      <h1 className='text-2xl font-bold'>Order Summary</h1>
+                      <div className='flex justify-between mt-4'>
+                        <h1 className='text-gray-400'>Subtotal</h1>
+                        <h3>$ {(subtotals).toFixed(0,2)}</h3>
+                      </div>
+                      <div className='flex justify-between mt-4'>
+                        <h1 className='text-gray-400'>Discount (-20%)</h1>
+                        <h3>Discount(-{discauntparcent}%)</h3>
+                      </div>
+                      <div className='flex justify-between mt-4 border-b border-[#0000001A] pb-5'>
+                        <h1 className='text-gray-400'>Delivery Fee</h1>
+                        <h3>${deliveryFree}</h3>
+                      </div>
+                      <div className='flex justify-between mt-4'>
+                        <h1 className='text-gray-400'>total</h1>
+                        <h3>$ {total.toFixed(2)}</h3>
+                      </div>
+                      <div className='flex mt-4 items-center justify-between'>
+                        <button className='py-3 px-30 bg-[#F0F0F0] rounded-[62px]'>Add promo code</button>
+                        <button className='bg-black py-2 px-6 rounded-[62px] text-white'>apply</button>
+                      </div>
+                 </div>
            </>
+           
+          
            )
            }
 
-            <div className='p-3 border border-[#0000001A] w-126 rounded-2xl absolute top-0 right-50'>
+            {/* <div className='p-3 border border-[#0000001A] w-126 rounded-2xl absolute top-0 right-50'>
                       <h1 className='text-2xl font-bold'>Order Summary</h1>
                       <div className='flex justify-between mt-4'>
                         <h1 className='text-gray-400'>Subtotal</h1>
@@ -76,7 +106,7 @@ const Cart = () => {
                         <button className='py-3 px-30 bg-[#F0F0F0] rounded-[62px]'>Add promo code</button>
                         <button className='bg-black py-2 px-6 rounded-[62px] text-white'>apply</button>
                       </div>
-                 </div>
+                 </div> */}
 
 
          </div>
