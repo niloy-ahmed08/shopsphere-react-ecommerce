@@ -27,10 +27,9 @@ const NavBar = () => {
                         <li>Brands</li>
                       </ul>
                       <div className=' relative  '>
-                      <input type="text" className='py-4 px-13 bg-[#F0F0F0] rounded-[62px]' />
-                      <div className='flex gap-3 items-center absolute top-4 left-6 outline-none focus:outline-none border-none focus:border-none'>
+                      <input type="text" placeholder='search your products' className='py-4 px-13 bg-[#F0F0F0] rounded-[62px]' />
+                      <div className='flex gap-3 items-center absolute top-5.5 left-6 outline-none focus:outline-none border-none focus:border-none'>
                         <IoSearchSharp className='text-[#00000066] text-[16px]' />
-                        <h1 className='text-[16px] font-normal text-[#00000066]'>Search for products...</h1>
                       </div>
                       </div>
 

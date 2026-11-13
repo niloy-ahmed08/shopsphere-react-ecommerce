@@ -8,6 +8,7 @@ import { useParams } from 'react-router';
 import SKelitoon from '../Components/SKelitoon';
 import { useDispatch } from 'react-redux';
 import { cartReducer } from '../Slice/ProductSlice';
+import Skelitoons from '../Components/Skelitoons';
 
 
 const ProductDettels = () => {
@@ -60,7 +61,7 @@ const[error,seterror]=useState([])
         <div>
           {
             error ?      <div className='w-111'>
-                       <SKelitoon  />
+                       <Skelitoons  />
                     
                        
                        </div>

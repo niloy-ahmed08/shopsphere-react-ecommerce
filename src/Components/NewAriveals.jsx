@@ -3,7 +3,8 @@ import Card from './Card'
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { ProductReducer } from '../Slice/ProductSlice';
-import SKelitoon from './SKelitoon';
+
+import Skelitoons from '../Components/Skelitoons'
 const NewAriveals = () => {
 
            const [products,setproducts]=useState([])
@@ -60,9 +61,11 @@ const NewAriveals = () => {
                   Loading ?<div className='mt-13   justify-center  flex flex-wrap items-center gap-30 '>
 
                        <>
-                       <SKelitoon/>
-                       <SKelitoon/>
-                       <SKelitoon/>
+                       
+                         <Skelitoons/>
+                    <Skelitoons/>
+                      <Skelitoons/>
+                        <Skelitoons/>
                        
                        </>
 
