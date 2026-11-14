@@ -35,6 +35,7 @@ const NewAriveals = () => {
 
                let categorybycategory = datae.filter((items)=>items.category === item);
                 setproducts(categorybycategory)
+               
                    
             };
 
@@ -46,12 +47,12 @@ const NewAriveals = () => {
              
 
             <h1 className='text-[48px] font-bold  text-center '>NEW ARRIVALS</h1>
-              {/* <li onClick={()=>(dispath(ProductReducer((products))))}></li> */}
+              {/* <li onClick={()=>setproducts(categorybycategory)}>all produts</li> */}
                 <ul className=' flex items-center gap-10 justify-center'>
 
                 {
                   unickcategory.map((item)=>{
-                    return <li  className='  rounded-2xl justify-center bg-[#F0EEED] p-2 text-black flex items-center mt-10' onClick={()=>handalecategory(item)}>
+                    return <li  className='  rounded-xl justify-center bg-[#F0EEED] p-2 text-black flex items-center mt-10' onClick={()=>handalecategory(item)}>
                       {item}</li>
                   })
                 }
