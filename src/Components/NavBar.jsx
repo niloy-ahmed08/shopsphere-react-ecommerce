@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IoSearchSharp } from "react-icons/io5";
 import { IoCart } from "react-icons/io5";
 import { IoIosContact } from "react-icons/io";
@@ -10,8 +10,20 @@ const NavBar = () => {
 
 
    const selector = useSelector(state=>state.product.cart)
-     console.log(selector)
+     
+      const alldata = useSelector(state=>state.product.value)
+     
+
    const navigate = useNavigate()
+
+         const [search,setsearch]=useState('')
+         
+         const handalechange = (e)=>{
+           const value = e.targer.value ;
+      
+           alldata.filter((item)=>)
+
+         }
 
   return (
     <div className='py-6 bg-white'>
@@ -27,7 +39,7 @@ const NavBar = () => {
                         <li>Brands</li>
                       </ul>
                       <div className=' relative  '>
-                      <input type="text" placeholder='search your products' className='py-4 px-13 bg-[#F0F0F0] rounded-[62px]' />
+                      <input type="text" placeholder='search your products' onChange={handalechange} className='py-4 px-13 outline-none bg-[#F0F0F0] rounded-[62px]' />
                       <div className='flex gap-3 items-center absolute top-5.5 left-6 outline-none focus:outline-none border-none focus:border-none'>
                         <IoSearchSharp className='text-[#00000066] text-[16px]' />
                       </div>
