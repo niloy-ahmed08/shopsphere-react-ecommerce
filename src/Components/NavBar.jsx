@@ -17,13 +17,26 @@ const NavBar = () => {
    const navigate = useNavigate()
 
          const [search,setsearch]=useState('')
+
+          const [inputdata,setinputdata]=useState([])
          
          const handalechange = (e)=>{
-           const value = e.targer.value ;
-      
-           alldata.filter((item)=>)
+           const value = e.target.value ;
+            setsearch(value)
 
+           
+            if (value == '') {
+
+              setinputdata([])
+            }else{
+                const Allapidata = alldata.filter((item)=> item.title.toLowerCase().includes(value.toLowerCase()))
+            setinputdata(Allapidata)
+            }
+
+           
+          
          }
+         
 
   return (
     <div className='py-6 bg-white'>
@@ -45,7 +58,7 @@ const NavBar = () => {
                       </div>
                       </div>
 
-                      <div className='flex gap-6 text-2xl'>
+                      <div className='flex gap-6 text-2xl relative'>
                         <div onClick={()=>navigate('/cartdettels')}  >
                            <IoCart  className=' relative' />
                         <div className=' -mt-7 absolute size-4 rounded-full flex items-center justify-center text-xs text-white bg-red-400'>
@@ -53,6 +66,27 @@ const NavBar = () => {
 
                         </div>
                         </div>
+                        
+                          <ul className='w-100  py-2 px-4  right-35  text-black top-13 absolute'>
+                              {
+                          inputdata.map((item)=>{
+                            return <li key={item.id} onClick={()=>{  navigate(`/productdettels/${item.id} `)
+                            
+                            setinputdata([])
+                            setsearch('')
+                          
+                          }} 
+                            className=' bg-[#F0F0F0] border flex  py-2 px-4 gap-4 items-center'>
+                              
+                            
+                               <img className='w-12.5 h-12.5' src={item.thumbnail} alt="" />
+
+                              {item.title.slice(0,12)}
+                            </li>
+                          })
+                        }
+                          </ul>
+                     
                        
                         <IoIosContact />
 

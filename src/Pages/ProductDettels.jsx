@@ -33,7 +33,7 @@ const[error,seterror]=useState([])
 
              useEffect(()=>{
                          Allproducts()
-                       },[])
+                       },[id])
 
                        const  dispatch = useDispatch()
 
