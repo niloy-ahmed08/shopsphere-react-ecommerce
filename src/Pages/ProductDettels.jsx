@@ -6,9 +6,12 @@ import { FaPlus } from "react-icons/fa6";
 import axios from 'axios';
 import { useParams } from 'react-router';
 import SKelitoon from '../Components/SKelitoon';
-import { useDispatch } from 'react-redux';
-import { cartReducer } from '../Slice/ProductSlice';
+import { useDispatch, useSelector } from 'react-redux';
+
 import Skelitoons from '../Components/Skelitoons';
+import { cartReducer, subtotalReducer } from '../Slice/ProductSlice';
+
+import { toast } from 'react-toastify';
 
 
 const ProductDettels = () => {
@@ -35,8 +38,21 @@ const[error,seterror]=useState([])
                          Allproducts()
                        },[id])
 
-                       const  dispatch = useDispatch()
+                       const dispatch = useDispatch()
+                const selector = useSelector(state => state.product.cart)
+             const handaleaddtocart = ()=>{
+               const matchitem = selector.find((item) => item.id === prodct.id)
 
+  if (matchitem) {
+    toast.warn('Product is already in your cart!!')
+    return
+  }
+
+  dispatch(cartReducer({ ...prodct, quan: 1 }))
+  dispatch(subtotalReducer())
+  toast.success('Successfully Product added to your cart!')
+
+             }
                    
 
 
@@ -116,7 +132,7 @@ const[error,seterror]=useState([])
 
                      </div>
 
-                     <div  className=' bg-black pt-4 pb-4 pr-40 pl-40 text-white rounded-[62px]'>
+                     <div onClick={handaleaddtocart} className=' bg-black pt-4 pb-4 pr-40 pl-40 text-white rounded-[62px]'>
                           add to cart
                      </div>
 

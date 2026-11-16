@@ -10,7 +10,7 @@ const NavBar = () => {
 
 
    const selector = useSelector(state=>state.product.cart)
-     
+      
       const alldata = useSelector(state=>state.product.value)
      
 
