@@ -9,9 +9,10 @@ import SKelitoon from '../Components/SKelitoon';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Skelitoons from '../Components/Skelitoons';
-import { cartReducer, subtotalReducer } from '../Slice/ProductSlice';
+import { cartReducer, decrementReducer, incrementReducer, subtotalReducer } from '../Slice/ProductSlice';
 
 import { toast } from 'react-toastify';
+import CartItem from '../Components/CartItem';
 
 
 const ProductDettels = () => {
@@ -52,6 +53,37 @@ const[error,seterror]=useState([])
   dispatch(subtotalReducer())
   toast.success('Successfully Product added to your cart!')
 
+             }
+
+              const cartItem = selector.find((item)=>item.id === prodct.id)
+
+                const [Qun,setQun]=useState(0)
+
+             const handaleplus = ()=>{
+
+              if(!prodct.id)return
+              if (cartItem) {
+                dispatch(incrementReducer(prodct.id))
+                dispatch(subtotalReducer())
+                
+              }else{
+                setQun(Qun + 1)
+              }
+             }
+
+             const handalemines = ()=>{
+                       if (cartItem) {
+
+                        if (cartItem.quan <= 1) {
+                          dispatch(decrementReducer(prodct.id))
+                          dispatch(subtotalReducer())
+                        }else{
+                          if(Qun <= 1)return
+                          setQun(Qun - 1)
+                        }
+                        
+                       }
+          
              }
                    
 
@@ -123,10 +155,10 @@ const[error,seterror]=useState([])
                      <div className='p-6 bg-[#F0F0F0] rounded-[62px] mt-5 '>
 
                       <div className='flex gap-10  items-center'>
-                        <FaMinus />
+                        <FaMinus onClick={handalemines} />
 
-                        <h1>3</h1>
-                        <FaPlus />
+                        <h1 className='text-red-500'>{cartItem ? cartItem.quan : Qun}</h1>
+                        <FaPlus onClick={handaleplus} />
 
                       </div>
 
