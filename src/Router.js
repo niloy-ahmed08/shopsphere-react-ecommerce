@@ -8,6 +8,7 @@ import Gym from "./Pages/Gym";
 import ProductDettels from "./Pages/ProductDettels";
 import Cart from "./Pages/Cart";
 import NewAriveals from "./Components/NewAriveals";
+import Singup from "./Components/Singup";
 
 
 export const router = createBrowserRouter([
@@ -23,6 +24,7 @@ export const router = createBrowserRouter([
         { path: "productdettels/:id", Component: ProductDettels },
                 { path: "cartdettels", Component: Cart },
                   { path: "newarrivales", Component: NewAriveals },
+                  {path : 'sinup', Component : Singup}
 
     ],
   },
